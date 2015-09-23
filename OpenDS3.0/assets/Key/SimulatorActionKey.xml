@@ -1,0 +1,9 @@
+<Keys xmlns="urn:kookmin.eecs.cs.purpleocean:key"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="SimulatorActionKey.xsd">
+	<Key>
+		<ActionName>HUD</ActionName>
+		<KeyCode>KEY_A</KeyCode>
+		<Description>KEY_A!!</Description>
+	</Key>
+</Keys>
