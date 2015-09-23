@@ -106,5 +106,7 @@
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="lib" path="lib/NetMessageProtocol.jar"/>
 	<classpathentry kind="lib" path="lib/tvpt.jar"/>
+	<classpathentry kind="lib" path="assets/JasperReports/log4j"/>
+	<classpathentry kind="lib" path="assets/Textures/Logo"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
