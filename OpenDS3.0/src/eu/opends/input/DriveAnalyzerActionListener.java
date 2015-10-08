@@ -18,6 +18,8 @@
 
 package eu.opends.input;
 
+import java.lang.reflect.Method;
+
 import com.jme3.input.controls.ActionListener;
 
 import eu.opends.main.DriveAnalyzer;
@@ -31,97 +33,109 @@ import eu.opends.tools.PanelCenter;
  */
 public class DriveAnalyzerActionListener implements ActionListener
 {
-	private DriveAnalyzer analyzer;
+	private static DriveAnalyzer analyzer;
 	
     public DriveAnalyzerActionListener(DriveAnalyzer analyzer) 
     {
     	this.analyzer = analyzer;
 	}
+    
+    public static DriveAnalyzer getDriveAnalyzer()
+    {
+    	return analyzer;
+    }
 
     @Override
 	public void onAction(String binding, boolean value, float tpf) 
 	{
-		
-		if (binding.equals(KeyMapping.GOTO_PREVIOUS_DATAPOINT.getID())) 
-		{
-			if (value) 
-			{
-				analyzer.moveFocus(-1);
-			}
-		} 
-		
-		else if (binding.equals(KeyMapping.GOTO_NEXT_DATAPOINT.getID())) 
-		{
-			if (value) 
-			{
-				analyzer.moveFocus(1);
-			}
+    	try {
+			Class actionClass = Class.forName(binding);
+			Method action = actionClass.getMethod("action");
+			action.invoke(actionClass);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-
-		else if (binding.equals(KeyMapping.TOGGLE_CAM.getID())) 
-		{
-			if (value) {
-				// toggle camera
-				analyzer.getCameraFactory().changeCamera();
-			}
-		}
-		
-		
-		else if (binding.equals(KeyMapping.TOGGLE_POINTS.getID())) 
-		{
-			if (value) 
-			{
-				analyzer.toggleVisualization(VisualizationMode.POINT);
-			}
-		}
-		
-		
-		else if (binding.equals(KeyMapping.TOGGLE_LINE.getID())) 
-		{
-			if (value) 
-			{
-				analyzer.toggleVisualization(VisualizationMode.LINE);
-			}
-		}
-		
-		
-		else if (binding.equals(KeyMapping.TOGGLE_CONE.getID())) 
-		{
-			if (value) 
-			{
-				analyzer.toggleVisualization(VisualizationMode.CONE);
-			}
-		}
-
-		else if (binding.equals(KeyMapping.TOGGLE_KEYMAPPING.getID())) 
-		{
-			if (value)
-				analyzer.getKeyMappingGUI().toggleDialog();
-		}
-
-		else if (binding.equals(KeyMapping.SHUTDOWN.getID())) 
-		{
-			if (value)
-				analyzer.getShutDownGUI().toggleDialog();
-		}
-		
-		else if (binding.equals(KeyMapping.TOGGLE_MESSAGEBOX.getID())) 
-		{
-			if (value)
-			{
-				MessageBoxGUI messageBoxGUI = PanelCenter.getMessageBox();
-				messageBoxGUI.toggleDialog();
-				
-				analyzer.toggleMessageBoxUpdates();
-			}
-		}
-		
-		else if (binding.equals(KeyMapping.TOGGLE_REPLAY.getID())) 
-		{
-			if (value)
-				analyzer.toggleReplay();
-		}
+//		if (binding.equals(KeyMapping.GOTO_PREVIOUS_DATAPOINT.getID())) 
+//		{
+//			if (value) 
+//			{
+//				analyzer.moveFocus(-1);
+//			}
+//		} 
+//		
+//		else if (binding.equals(KeyMapping.GOTO_NEXT_DATAPOINT.getID())) 
+//		{
+//			if (value) 
+//			{
+//				analyzer.moveFocus(1);
+//			}
+//		}
+//		
+//
+//		else if (binding.equals(KeyMapping.TOGGLE_CAM.getID())) 
+//		{
+//			if (value) {
+//				// toggle camera
+//				analyzer.getCameraFactory().changeCamera();
+//			}
+//		}
+//		
+//		
+//		else if (binding.equals(KeyMapping.TOGGLE_POINTS.getID())) 
+//		{
+//			if (value) 
+//			{
+//				analyzer.toggleVisualization(VisualizationMode.POINT);
+//			}
+//		}
+//		
+//		
+//		else if (binding.equals(KeyMapping.TOGGLE_LINE.getID())) 
+//		{
+//			if (value) 
+//			{
+//				analyzer.toggleVisualization(VisualizationMode.LINE);
+//			}
+//		}
+//		
+//		
+//		else if (binding.equals(KeyMapping.TOGGLE_CONE.getID())) 
+//		{
+//			if (value) 
+//			{
+//				analyzer.toggleVisualization(VisualizationMode.CONE);
+//			}
+//		}
+//
+//		else if (binding.equals(KeyMapping.TOGGLE_KEYMAPPING.getID())) 
+//		{
+//			if (value)
+//				analyzer.getKeyMappingGUI().toggleDialog();
+//		}
+//
+//		else if (binding.equals(KeyMapping.SHUTDOWN.getID())) 
+//		{
+//			if (value)
+//				analyzer.getShutDownGUI().toggleDialog();
+//		}
+//		
+//		else if (binding.equals(KeyMapping.TOGGLE_MESSAGEBOX.getID())) 
+//		{
+//			if (value)
+//			{
+//				MessageBoxGUI messageBoxGUI = PanelCenter.getMessageBox();
+//				messageBoxGUI.toggleDialog();
+//				
+//				analyzer.toggleMessageBoxUpdates();
+//			}
+//		}
+//		
+//		else if (binding.equals(KeyMapping.TOGGLE_REPLAY.getID())) 
+//		{
+//			if (value)
+//				analyzer.toggleReplay();
+//		}
 		
 	}
 }

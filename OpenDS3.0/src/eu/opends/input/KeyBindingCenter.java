@@ -74,7 +74,7 @@ public class KeyBindingCenter
     }
     
     
-    private void addKeyMapping(KeyMapping keyMapping, InputListener inputListener)
+    private void addKeyMapping(Key keyMapping, InputListener inputListener)
     {
     	String[] keys = keyMapping.getKeys();
     	
@@ -134,13 +134,13 @@ public class KeyBindingCenter
 	{
 		// ACTION
 		InputListener simulatorActionListener = new SimulatorActionListener(simulator);
-		for(KeyMapping keyMapping : KeyMapping.getSimulatorActionKeyMappingList())
+		for(Key keyMapping : KeyMapping.getSimulatorActionKeyMappingList())
 			addKeyMapping(keyMapping, simulatorActionListener);
 		
 		
 		// ANALOG (keys and joystick buttons)
 		InputListener simulatorAnalogListener = new SimulatorAnalogListener(simulator);
-		for(KeyMapping keyMapping : KeyMapping.getSimulatorAnalogKeyMappingList())
+		for(Key keyMapping : KeyMapping.getSimulatorAnalogKeyMappingList())
 			addKeyMapping(keyMapping, simulatorAnalogListener);
 		
 		// ANALOG (joystick axes)
@@ -223,13 +223,13 @@ public class KeyBindingCenter
 		
 		// ACTION
 		InputListener driveAnalyzerActionListener = new DriveAnalyzerActionListener(analyzer);
-		for(KeyMapping keyMapping : KeyMapping.getDriveAnalyzerActionKeyMappingList())
+		for(Key keyMapping : KeyMapping.getDriveAnalyzerActionKeyMappingList())
 			addKeyMapping(keyMapping, driveAnalyzerActionListener);
 
 
 		// ANALOG
 		InputListener driveAnalyzerAnalogListener = new DriveAnalyzerAnalogListener(analyzer);
-		for(KeyMapping keyMapping : KeyMapping.getDriveAnalyzerAnalogKeyMappingList())
+		for(Key keyMapping : KeyMapping.getDriveAnalyzerAnalogKeyMappingList())
 			addKeyMapping(keyMapping, driveAnalyzerAnalogListener);
 	}
 }

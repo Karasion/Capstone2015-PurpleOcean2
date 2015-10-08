@@ -18,6 +18,8 @@
 
 package eu.opends.input;
 
+import java.lang.reflect.Method;
+
 import com.jme3.input.controls.AnalogListener;
 
 import eu.opends.main.DriveAnalyzer;
@@ -38,15 +40,22 @@ public class DriveAnalyzerAnalogListener implements AnalogListener
 	@Override
 	public void onAnalog(String binding, float value, float tpf) 
 	{
-
-		if (binding.equals(KeyMapping.GO_FORWARD.getID())) 
-		{
-			analyzer.moveFocus(1);
-		} 
-		
-		else if (binding.equals(KeyMapping.GO_BACKWARD.getID())) 
-		{
-			analyzer.moveFocus(-1);
-		} 
+		try {
+			Class actionClass = Class.forName(binding);
+			Method action = actionClass.getMethod("action");
+			action.invoke(actionClass);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		if (binding.equals(KeyMapping.GO_FORWARD.getID())) 
+//		{
+//			analyzer.moveFocus(1);
+//		} 
+//		
+//		else if (binding.equals(KeyMapping.GO_BACKWARD.getID())) 
+//		{
+//			analyzer.moveFocus(-1);
+//		} 
 	}
 }
