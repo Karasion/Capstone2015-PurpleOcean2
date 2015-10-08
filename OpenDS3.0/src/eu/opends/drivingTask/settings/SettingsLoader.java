@@ -30,7 +30,7 @@ import org.w3c.dom.NodeList;
 
 import eu.opends.drivingTask.DrivingTaskDataQuery;
 import eu.opends.drivingTask.DrivingTaskDataQuery.Layer;
-import eu.opends.input.KeyMapping;
+import eu.opends.input.Key;
 
 /**
  * 
@@ -352,16 +352,16 @@ public class SettingsLoader
 	}
 	
 	
-	public List<KeyMapping> lookUpKeyMappings(ArrayList<KeyMapping> keyMappingList)
+	public List<Key> lookUpKeyMappings(ArrayList<Key> keyList)
 	{
-		for(KeyMapping keyMapping : keyMappingList)
+		for(Key key : keyList)
 		{
-			String function = keyMapping.getID();
+			String function = key.getID();
 			if(keyAssignmentMap.containsKey(function))
-				keyMapping.setKeys(keyAssignmentMap.get(function));
+				key.setKeys(keyAssignmentMap.get(function));
 		}
 		
-		return keyMappingList;
+		return keyList;
 	}
 
 }
