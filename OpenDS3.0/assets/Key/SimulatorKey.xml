@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Keys xmlns="urn:kookmin.eecs.cs.purpleocean:key"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="OpenDSKey.xsd">
+	<ActionKey>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_keymapping</ActionName>
+			<KeyCode>KEY_F1</KeyCode>
+			<Description>show/hide key mapping</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Shutdown</ActionName>
+			<KeyCode>KEY_ESCAPE</KeyCode>
+			<Description>exit simulator</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Accelerate</ActionName>
+			<KeyCode>KEY_UP</KeyCode>
+			<Description>accelerate</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Accelerate_back</ActionName>
+			<KeyCode>KEY_DOWN</KeyCode>
+			<Description>accelerate back</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Steer_left</ActionName>
+			<KeyCode>KEY_LEFT</KeyCode>
+			<Description>steer left</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Steer_right</ActionName>
+			<KeyCode>KEY_RIGHT</KeyCode>
+			<Description>steer right</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Brake</ActionName>
+			<KeyCode>KEY_SPACE</KeyCode>
+			<Description>brake</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_cam</ActionName>
+			<KeyCode>KEY_V</KeyCode>
+			<Description>change camera view</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_wireframe</ActionName>
+			<KeyCode>KEY_W</KeyCode>
+			<Description>wire frame on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_engine</ActionName>
+			<KeyCode>KEY_E</KeyCode>
+			<Description>engine on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_pause</ActionName>
+			<KeyCode>KEY_P</KeyCode>
+			<Description>pause/resume</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Start_pause</ActionName>
+			<KeyCode>KEY_O</KeyCode>
+			<Description>pause simulation</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Stop_pause</ActionName>
+			<KeyCode>KEY_I</KeyCode>
+			<Description>resume simulation</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_trafficlightmode</ActionName>
+			<KeyCode>KEY_A</KeyCode>
+			<Description>change traffic light mode</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_messagebox</ActionName>
+			<KeyCode>KEY_M</KeyCode>
+			<Description>show/hide messages</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_record_data</ActionName>
+			<KeyCode>KEY_S</KeyCode>
+			<Description>start/stop recording</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_topview</ActionName>
+			<KeyCode>KEY_U</KeyCode>
+			<Description>top view on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_backmirror</ActionName>
+			<KeyCode>KEY_BACK</KeyCode>
+			<Description>back view mirror</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Shift_up</ActionName>
+			<KeyCode>KEY_PGUP</KeyCode>
+			<Description>shift up</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Shift_down</ActionName>
+			<KeyCode>KEY_PGDN</KeyCode>
+			<Description>shift down</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_automatic</ActionName>
+			<KeyCode>KEY_END</KeyCode>
+			<Description>automatic/manual transmission</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Horn</ActionName>
+			<KeyCode>KEY_H</KeyCode>
+			<Description>horn</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_min_speed</ActionName>
+			<KeyCode>KEY_D</KeyCode>
+			<Description>maintain min speed on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Cruise_control</ActionName>
+			<KeyCode>KEY_X</KeyCode>
+			<Description>cruise control on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car</ActionName>
+			<KeyCode>KEY_R</KeyCode>
+			<Description>reset car</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos1</ActionName>
+			<KeyCode>KEY_1</KeyCode>
+			<Description>reset car (pos 1)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos2</ActionName>
+			<KeyCode>KEY_2</KeyCode>
+			<Description>reset car (pos 2)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos3</ActionName>
+			<KeyCode>KEY_3</KeyCode>
+			<Description>reset car (pos 3)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos4</ActionName>
+			<KeyCode>KEY_4</KeyCode>
+			<Description>reset car (pos 4)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos5</ActionName>
+			<KeyCode>KEY_5</KeyCode>
+			<Description>reset car (pos 5)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos6</ActionName>
+			<KeyCode>KEY_6</KeyCode>
+			<Description>reset car (pos 6)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos7</ActionName>
+			<KeyCode>KEY_7</KeyCode>
+			<Description>reset car (pos 7)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos8</ActionName>
+			<KeyCode>KEY_8</KeyCode>
+			<Description>reset car (pos 8)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos9</ActionName>
+			<KeyCode>KEY_9</KeyCode>
+			<Description>reset car (pos 9)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_car_pos10</ActionName>
+			<KeyCode>KEY_0</KeyCode>
+			<Description>reset car (pos 10)</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Reset_fuel_consumption</ActionName>
+			<KeyCode>KEY_T</KeyCode>
+			<Description>reset fuel consumption</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_stats</ActionName>
+			<KeyCode>KEY_F4</KeyCode>
+			<Description>toggle stats</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_cinematics</ActionName>
+			<KeyCode>KEY_RETURN</KeyCode>
+			<Description>toggle camera flight</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_headlight</ActionName>
+			<KeyCode>KEY_L</KeyCode>
+			<Description>toggle head light</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Report_landmark</ActionName>
+			<KeyCode>KEY_SPACE</KeyCode>
+			<Description>report landmark</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_physics_debug</ActionName>
+			<KeyCode>KEY_F6</KeyCode>
+			<Description>toggle physics debug</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Close_instruction_screen</ActionName>
+			<KeyCode>KEY_F5</KeyCode>
+			<Description>close instruction screen</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Report_reaction</ActionName>
+			<KeyCode>KEY_G</KeyCode>
+			<Description>report reaction</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Rotate_object_left_fast</ActionName>
+			<KeyCode>KEY_F7</KeyCode>
+			<Description>fast rotate object left</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Rotate_object_right_fast</ActionName>
+			<KeyCode>KEY_F8</KeyCode>
+			<Description>fast rotate object right</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Rotate_object_left</ActionName>
+			<KeyCode>KEY_F9</KeyCode>
+			<Description>rotate object left</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Rotate_object_right</ActionName>
+			<KeyCode>KEY_F10</KeyCode>
+			<Description>rotate object right</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Set_object</ActionName>
+			<KeyCode>KEY_F11</KeyCode>
+			<Description>set object</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Toggle_object</ActionName>
+			<KeyCode>KEY_F12</KeyCode>
+			<Description>toggle object</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Turn_left</ActionName>
+			<KeyCode>KEY_J</KeyCode>
+			<Description>flash left turn signal</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Turn_right</ActionName>
+			<KeyCode>KEY_K</KeyCode>
+			<Description>flash right turn signal</Description>
+		</Key>
+		<Key>
+			<ActionName>eu.opends.input.action.simulator.Hazard_lights</ActionName>
+			<KeyCode>KEY_F</KeyCode>
+			<Description>flash hazard lights</Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Hud_display</ActionName>
+			<KeyCode>KEY_B</KeyCode>
+			<Description>hud on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_left</ActionName>
+			<KeyCode>KEY_F2</KeyCode>
+			<Description>move left to menu cursor </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_right</ActionName>
+			<KeyCode>KEY_F3</KeyCode>
+			<Description>move right to menu cursor </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_push</ActionName>
+			<KeyCode>KEY_N</KeyCode>
+			<Description>menu select </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_up</ActionName>
+			<KeyCode>KEY_C</KeyCode>
+			<Description>menu select </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_down</ActionName>
+			<KeyCode>KEY_Z</KeyCode>
+			<Description>menu select </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Hud_tool</ActionName>
+			<KeyCode>KEY_Q</KeyCode>
+			<Description>hud tool on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Hud_tool_key</ActionName>
+			<KeyCode>KEY_DELETE</KeyCode>
+			<Description>hud element delete</Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Hud_display</ActionName>
+			<KeyCode>KEY_B</KeyCode>
+			<Description>hud on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_left</ActionName>
+			<KeyCode>KEY_F2</KeyCode>
+			<Description>move left to menu cursor </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_right</ActionName>
+			<KeyCode>KEY_F3</KeyCode>
+			<Description>move right to menu cursor </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_push</ActionName>
+			<KeyCode>KEY_N</KeyCode>
+			<Description>menu select </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_up</ActionName>
+			<KeyCode>KEY_C</KeyCode>
+			<Description>menu select </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_down</ActionName>
+			<KeyCode>KEY_Z</KeyCode>
+			<Description>menu select </Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Hud_tool</ActionName>
+			<KeyCode>KEY_Q</KeyCode>
+			<Description>hud tool on/off</Description>
+		</Key>
+		<Key>
+			<ActionName>kr.ac.kookmin.cs.key.action.Hud_tool_key</ActionName>
+			<KeyCode>KEY_DELETE</KeyCode>
+			<Description>hud element delete</Description>
+		</Key>
+	</ActionKey>
+	<AnlogKey>
+	</AnlogKey>
+</Keys>

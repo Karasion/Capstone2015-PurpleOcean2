@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Keys xmlns="urn:kookmin.eecs.cs.purpleocean:key"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="OpenDSKey.xsd">
+    <ActionKey>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_keymapping</ActionName>
+            <KeyCode>KEY_F1</KeyCode>
+            <Description>show/hide key mapping</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Shutdown</ActionName>
+            <KeyCode>KEY_ESCAPE</KeyCode>
+            <Description>exit simulator</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_cam</ActionName>
+            <KeyCode>KEY_V</KeyCode>
+            <Description>change camera view</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_points</ActionName>
+            <KeyCode>KEY_1</KeyCode>
+            <Description>show points</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_line</ActionName>
+            <KeyCode>KEY_2</KeyCode>
+            <Description>show line</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_cone</ActionName>
+            <KeyCode>KEY_3</KeyCode>
+            <Description>show cone</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Goto_next_datapoint</ActionName>
+            <KeyCode>KEY_UP</KeyCode>
+            <Description>next data point</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Goto_previous_datapoint</ActionName>
+            <KeyCode>KEY_DOWN</KeyCode>
+            <Description>previous data point</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_messagebox</ActionName>
+            <KeyCode>KEY_M</KeyCode>
+            <Description>show/hide messages</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Toggle_replay</ActionName>
+            <KeyCode>KEY_RETURN</KeyCode>
+            <Description>start/stop replay</Description>
+        </Key>
+    </ActionKey>
+    <AnalogKey>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Go_forward</ActionName>
+            <KeyCode>KEY_RIGHT</KeyCode>
+            <Description>move forwards</Description>
+        </Key>
+        <Key>
+            <ActionName>eu.opends.input.action.driveAnalyzer.Go_backward</ActionName>
+            <KeyCode>KEY_LEFT</KeyCode>
+            <Description>move backwards</Description>
+        </Key>
+    </AnalogKey>
+</Keys>
