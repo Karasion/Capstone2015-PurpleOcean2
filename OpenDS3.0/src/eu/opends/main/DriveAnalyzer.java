@@ -52,6 +52,7 @@ import eu.opends.basics.InternalMapProcessing;
 import eu.opends.basics.SimulationBasics;
 import eu.opends.camera.AnalyzerCam;
 import eu.opends.drivingTask.DrivingTask;
+import eu.opends.input.DriveAnalyzerKeyLoader;
 import eu.opends.input.KeyBindingCenter;
 import eu.opends.knowledgeBase.KnowledgeBase;
 import eu.opends.niftyGui.AnalyzerFileSelectionGUIController;
@@ -744,6 +745,16 @@ public class DriveAnalyzer extends SimulationBasics
 		analyzer.setSettings(settings);
 		
 		analyzer.setPauseOnLostFocus(false);
+		
+		//TODO add Key-Maaping Loader
+    	DriveAnalyzerKeyLoader driveAnalyzerKeyLoader = new DriveAnalyzerKeyLoader();
+    	try {
+			driveAnalyzerKeyLoader.parser();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		analyzer.start();
 	}
 

@@ -22,6 +22,7 @@ package eu.opends.main;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -51,6 +52,7 @@ import eu.opends.environment.TrafficLightCenter;
 import eu.opends.eyetracker.EyetrackerCenter;
 import eu.opends.hmi.HMICenter;
 import eu.opends.input.KeyBindingCenter;
+import eu.opends.input.SimulatorKeyLoader;
 import eu.opends.knowledgeBase.KnowledgeBase;
 import eu.opends.multiDriver.MultiDriverClient;
 import eu.opends.niftyGui.DrivingTaskSelectionGUIController;
@@ -658,6 +660,10 @@ public class Simulator extends SimulationBasics
 	    		SimulationDefaults.driverName = args[1];
 	    	}
 			
+	    	//TODO add Key-Maaping Loader
+	    	SimulatorKeyLoader simKeyLoader = new SimulatorKeyLoader();
+			simKeyLoader.parser();
+	    	
 	    	AppSettings settings = new AppSettings(false);
 	        settings.setUseJoysticks(true);
 	        settings.setSettingsDialogImage("OpenDS.png");
