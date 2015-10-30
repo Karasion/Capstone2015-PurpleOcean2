@@ -23,6 +23,10 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+import kr.ac.kookmin.cs.bluetooth.RemoteBluetoothServer;
+import kr.ac.kookmin.cs.hud.HUDManagement;
+import kr.ac.kookmin.cs.hud.HUDRegister;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -287,13 +291,19 @@ public class Simulator extends SimulationBasics
 		
     	// sets up physics, camera, light, shadows and sky
     	super.simpleInitApp();
-		
+    	
+    	// start bluetooth server
+        RemoteBluetoothServer.start();
+        
     	// set gravity
     	gravityConstant = drivingTask.getSceneLoader().getGravity(SimulationDefaults.gravity);
     	getPhysicsSpace().setGravity(new Vector3f(0, -gravityConstant, 0));	
     	getPhysicsSpace().setAccuracy(0.008f); //TODO comment to set accuracy to 0.0166666 ?
 
     	PanelCenter.init(this);
+    	// add part
+        HUDRegister.hud_enrollment();
+        HUDManagement.init(this);
 	
         Joystick[] joysticks = inputManager.getJoysticks();
         if(joysticks != null)
@@ -471,6 +481,7 @@ public class Simulator extends SimulationBasics
 				car.getTransmission().updateRPM(tpf);
 		
 			PanelCenter.update();
+			HUDManagement.update();
 		
 			triggerCenter.doTriggerChecks();
 		
@@ -561,15 +572,16 @@ public class Simulator extends SimulationBasics
 	 * Will be called when pressing any close-button.
 	 * destroy() will be called subsequently.
 	 */
-	/*
+	
 	@Override
     public void stop()
     {
 		logger.info("started stop()");		
 		super.stop();
 		logger.info("finished stop()");
+		System.exit(0);
     }
-	*/
+	
 	
 	
 	/**
