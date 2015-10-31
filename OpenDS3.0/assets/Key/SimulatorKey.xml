@@ -304,46 +304,6 @@
 			<KeyCode>KEY_DELETE</KeyCode>
 			<Description>hud element delete</Description>
 		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Hud_display</ActionName>
-			<KeyCode>KEY_B</KeyCode>
-			<Description>hud on/off</Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_left</ActionName>
-			<KeyCode>KEY_F2</KeyCode>
-			<Description>move left to menu cursor </Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_right</ActionName>
-			<KeyCode>KEY_F3</KeyCode>
-			<Description>move right to menu cursor </Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_push</ActionName>
-			<KeyCode>KEY_N</KeyCode>
-			<Description>menu select </Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_up</ActionName>
-			<KeyCode>KEY_C</KeyCode>
-			<Description>menu select </Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Ghub_down</ActionName>
-			<KeyCode>KEY_Z</KeyCode>
-			<Description>menu select </Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Hud_tool</ActionName>
-			<KeyCode>KEY_Q</KeyCode>
-			<Description>hud tool on/off</Description>
-		</Key>
-		<Key>
-			<ActionName>kr.ac.kookmin.cs.key.action.Hud_tool_key</ActionName>
-			<KeyCode>KEY_DELETE</KeyCode>
-			<Description>hud element delete</Description>
-		</Key>
 	</ActionKey>
 	<AnlogKey>
 	</AnlogKey>

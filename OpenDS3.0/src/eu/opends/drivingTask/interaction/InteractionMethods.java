@@ -29,6 +29,7 @@ import eu.opends.hmi.LocalDangerWarningPresentationModel;
 import eu.opends.hmi.PresentationModel;
 import eu.opends.hmi.RoadWorksInformationPresentationModel;
 import eu.opends.main.Simulator;
+import eu.opends.trigger.DisplayNavigatorAction;
 import eu.opends.trigger.GetTimeUntilBrakeAction;
 import eu.opends.trigger.GetTimeUntilSpeedChangeAction;
 import eu.opends.trigger.ManipulateObjectTriggerAction;
@@ -100,8 +101,29 @@ public class InteractionMethods
 			return null;
 		}
 	}
-	
-	
+	// TODO add part for HUD : trigger action(navigation)
+    // Im gisung, Hong sung hyeon
+    public TriggerAction displayNavigator(SimulationBasics sim, float delay, int repeat, Properties parameterList)
+    {
+      String parameter1 = "";
+      String parameter2 = "";
+      try
+      {
+        parameter1 = "naviType";
+        parameter2 = "distance";
+        String naviType = parameterList.getProperty(parameter1);
+        String distance = parameterList.getProperty(parameter2);
+        if(naviType == null)
+          throw new Exception();
+
+        return new DisplayNavigatorAction(naviType, distance);
+      }
+      catch (Exception e)
+      {
+        System.err.println("Error in action \"displayNavigator\": check parameter \"" + parameter1 + "\"");
+        return null;
+      }
+    }
 	
 	@Action(
 			name = "manipulateObject", 

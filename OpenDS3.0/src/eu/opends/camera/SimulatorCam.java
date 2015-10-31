@@ -18,6 +18,8 @@
 
 package eu.opends.camera;
 
+import kr.ac.kookmin.cs.hud.HUDManagement;
+
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.FastMath;
@@ -77,6 +79,9 @@ public class SimulatorCam extends CameraFactory
 		switch (mode)
 		{
 			case EGO:
+			  HUDManagement.setCameraEgo(true);
+			  if (HUDManagement.getKeyFlag() == true)
+			    HUDManagement.hudAttach();
 				camMode = CameraMode.EGO;
 				sim.getRootNode().detachChild(mainCameraNode);
 				carNode.attachChild(mainCameraNode);
@@ -88,6 +93,8 @@ public class SimulatorCam extends CameraFactory
 				break;
 	
 			case CHASE:
+			  HUDManagement.setCameraEgo(false);
+			  HUDManagement.hudDetach();
 				camMode = CameraMode.CHASE;
 				sim.getRootNode().detachChild(mainCameraNode);
 				carNode.attachChild(mainCameraNode);
