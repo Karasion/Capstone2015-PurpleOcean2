@@ -36,7 +36,8 @@ public class SmsHud extends HUDClassTemplate{
   private static BitmapText smsText, smsNewMsgNum;
   private static int hud_state;
 
-  private static int x,y;
+  private static float x,y;
+  private static float adjustValueX, adjustValueY;
 
   private static Picture icon_en, icon_dis;
 
@@ -56,35 +57,38 @@ public class SmsHud extends HUDClassTemplate{
     BitmapFont font = sim.getAssetManager().loadFont("Interface/Fonts/MSNeoGothic/MSNeoGothic.fnt");
 
     x=sim.getSettings().getWidth()/2;
-    y=sim.getSettings().getHeight()/2-200;
+    y=sim.getSettings().getHeight()/2;
+    
+    adjustValueX = x / 960;
+    adjustValueY = y / 540;
 
-    smsText = new BitmapText(font,false);
-    smsText.setName("smsText");
-    smsText.setText("");
-    smsText.setSize(font.getCharSet().getRenderedSize());
-    smsText.setColor(ColorRGBA.White);
-    smsText.setLocalTranslation(x-250,y,0);
+//    smsText = new BitmapText(font,false);
+//    smsText.setName("smsText");
+//    smsText.setText("");
+//    smsText.setSize(font.getCharSet().getRenderedSize());
+//    smsText.setColor(ColorRGBA.White);
+//    smsText.setLocalTranslation(710 * adjustValueX,340 * adjustValueY,0);
 
     smsNewMsgNum = new BitmapText(font,false);
     smsNewMsgNum.setName("smsNewMsgNum");
     smsNewMsgNum.setText("");
     smsNewMsgNum.setSize(21);
     smsNewMsgNum.setColor(ColorRGBA.White);
-    smsNewMsgNum.setLocalTranslation(852,130,0);
+    smsNewMsgNum.setLocalTranslation(852 * adjustValueX,130 * adjustValueY,0);
 
-    smsGui.attachChild(smsText);
+    /*smsGui.attachChild(smsText);*/
     smsNum.attachChild(smsNewMsgNum);
 
     /* menu icon initialization */
     icon_en = new Picture("messageIcon_en");
     icon_en.setImage(sim.getAssetManager(), "Textures/icons/menubar/menubar_sms.png", true);
-    icon_en.setWidth(80);
-    icon_en.setHeight(80);
+    icon_en.setWidth(80 * adjustValueX);
+    icon_en.setHeight(80 * adjustValueY);
 
     icon_dis = new Picture("messageIcon_dis");
     icon_dis.setImage(sim.getAssetManager(), "Textures/icons/menubar/menubar_sms_c.png", true);
-    icon_dis.setWidth(80);
-    icon_dis.setHeight(80);
+    icon_dis.setWidth(80 * adjustValueX);
+    icon_dis.setHeight(80 * adjustValueY);
 
     HUDManagement.setMenuIcon(icon_en, icon_dis, hud_state);
   }

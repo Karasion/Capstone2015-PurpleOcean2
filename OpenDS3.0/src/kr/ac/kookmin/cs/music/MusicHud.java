@@ -40,10 +40,11 @@ public class MusicHud extends HUDClassTemplate{
   private static Picture musicHighlight;
   private static BitmapText musicName;
 
-  private static int musicCursorPosX;
-  private static int[] musicCursorPosY = new int[5];
+  private static float musicCursorPosX;
+  private static float[] musicCursorPosY = new float[5];
 
-  private static int x,y;
+  private static float x,y;
+  private static float adjustValueX, adjustValueY;
 
   private static Picture icon_en, icon_dis;
   
@@ -61,7 +62,10 @@ public class MusicHud extends HUDClassTemplate{
     BitmapFont font = sim.getAssetManager().loadFont("Interface/Fonts/MSNeoGothic/MSNeoGothic.fnt");
 
     x=sim.getSettings().getWidth()/2;
-    y=sim.getSettings().getHeight()/2-200;
+    y=sim.getSettings().getHeight()/2;
+    adjustValueX = x / 960;
+    adjustValueY = y / 540;
+    System.out.println("adX=" + adjustValueX + ", adY=" + adjustValueY);
 
     // element for music player 
     musicList = new BitmapText(font,false);
@@ -69,73 +73,73 @@ public class MusicHud extends HUDClassTemplate{
     musicList.setText("");
     musicList.setSize(font.getCharSet().getRenderedSize());
     musicList.setColor(ColorRGBA.White);
-    musicList.setLocalTranslation(x-250,y-20,0);
+    musicList.setLocalTranslation(710 * adjustValueX, 320 * adjustValueY,0);
 
-    musicCursorPosX = x - 283;
-    musicCursorPosY[0] = y-43;
-    musicCursorPosY[1] = y-76;
-    musicCursorPosY[2] = y-108;
-    musicCursorPosY[3] = y-140;
-    musicCursorPosY[4] = y-172;
+    musicCursorPosX = 677 * adjustValueX;
+    musicCursorPosY[0] = 297 * adjustValueY;
+    musicCursorPosY[1] = 264 * adjustValueY;
+    musicCursorPosY[2] = 232 * adjustValueY;
+    musicCursorPosY[3] = 200 * adjustValueY;
+    musicCursorPosY[4] = 168 * adjustValueY;
 
     musicCursor = new Picture("musicCursor");
     musicCursor.setImage(sim.getAssetManager(), "Textures/icons/music/musicplayer_arrow.png", true);
-    musicCursor.setWidth(10);
-    musicCursor.setHeight(11);
+    musicCursor.setWidth(10* adjustValueX);
+    musicCursor.setHeight(11 * adjustValueY);
     musicCursor.setPosition(musicCursorPosX, musicCursorPosY[0]);
 
     musicPlayerIcon[0] = new Picture("previous");
     musicPlayerIcon[0].setImage(sim.getAssetManager(), "Textures/icons/music/musicplayer_backSkip.png", true);
-    musicPlayerIcon[0].setWidth(46);
-    musicPlayerIcon[0].setHeight(46);
-    musicPlayerIcon[0].setPosition(x-225, y-180);
+    musicPlayerIcon[0].setWidth(46 * adjustValueX);
+    musicPlayerIcon[0].setHeight(46 * adjustValueY);
+    musicPlayerIcon[0].setPosition(735* adjustValueX, 160 * adjustValueY);
 
     musicPlayerIcon[1] = new Picture("play and pause");
     musicPlayerIcon[1].setImage(sim.getAssetManager(), "Textures/icons/music/musicplayer_pause.png", true);
-    musicPlayerIcon[1].setWidth(64);
-    musicPlayerIcon[1].setHeight(64);
-    musicPlayerIcon[1].setPosition(x-155, y-190);
+    musicPlayerIcon[1].setWidth(64 * adjustValueX);
+    musicPlayerIcon[1].setHeight(64 * adjustValueY);
+    musicPlayerIcon[1].setPosition(805 * adjustValueX, 150 * adjustValueY);
 
     musicPlayerIcon[2] = new Picture("next");
     musicPlayerIcon[2].setImage(sim.getAssetManager(), "Textures/icons/music/musicplayer_nextSkip.png", true);
-    musicPlayerIcon[2].setWidth(46);
-    musicPlayerIcon[2].setHeight(46);
-    musicPlayerIcon[2].setPosition(x-65,y-180);
+    musicPlayerIcon[2].setWidth(46 * adjustValueX);
+    musicPlayerIcon[2].setHeight(46 * adjustValueY);
+    musicPlayerIcon[2].setPosition(895 * adjustValueX,160 * adjustValueY);
 
     musicEquilizer = new Picture("music equilizer");
     musicEquilizer.setImage(sim.getAssetManager(), "Textures/icons/music/equlizer_arrow_merged.png", true);
-    musicEquilizer.setWidth(307);
-    musicEquilizer.setHeight(72);
-    musicEquilizer.setPosition(690,226);
+    musicEquilizer.setWidth(307 * adjustValueX);
+    musicEquilizer.setHeight(72 * adjustValueY);
+    musicEquilizer.setPosition(690 * adjustValueX,226 * adjustValueY);
     
     musicBackground = new Picture("musicBackground");
     musicBackground.setImage(sim.getAssetManager(), "Textures/icons/music/directory_listbox.png", true);
-    musicBackground.setWidth(322);
-    musicBackground.setHeight(160);
-    musicBackground.setPosition(690, 158);
+    musicBackground.setWidth(322 * adjustValueX);
+    musicBackground.setHeight(160 * adjustValueY);
+    musicBackground.setPosition(690 * adjustValueX, 158 * adjustValueY);
     
     musicHighlight = new Picture("musicHighlight");
     musicHighlight.setImage(sim.getAssetManager(), "Textures/icons/music/directory_highlight.png", true);
-    musicHighlight.setWidth(322);
-    musicHighlight.setHeight(29);
-    musicHighlight.setPosition(690, 288);
+    musicHighlight.setWidth(322 * adjustValueX);
+    musicHighlight.setHeight(29 * adjustValueY);
+    musicHighlight.setPosition(690 * adjustValueX, 288 * adjustValueY);
 
     musicName = new BitmapText(font,false);
     musicName.setName("music name");
     musicName.setText("fhdhahf");
     musicName.setSize(font.getCharSet().getRenderedSize());
-    musicName.setLocalTranslation(x-210, y-30, 0);
+    musicName.setLocalTranslation(750 * adjustValueX, 310 * adjustValueY, 0);
 
     /* menu icon initialization */
     icon_en = new Picture("musicIcon_en");
     icon_en.setImage(sim.getAssetManager(), "Textures/icons/menubar/menubar_music.png", true);
-    icon_en.setWidth(80);
-    icon_en.setHeight(80);
+    icon_en.setWidth(80 * adjustValueX);
+    icon_en.setHeight(80 * adjustValueY);
 
     icon_dis = new Picture("musicIcon_dis");
     icon_dis.setImage(sim.getAssetManager(), "Textures/icons/menubar/menubar_music_c.png", true);
-    icon_dis.setWidth(80);
-    icon_dis.setHeight(80);
+    icon_dis.setWidth(80 * adjustValueX);
+    icon_dis.setHeight(80 * adjustValueY);
 
     HUDManagement.setMenuIcon(icon_en, icon_dis, hud_state);
   }
@@ -327,7 +331,7 @@ public class MusicHud extends HUDClassTemplate{
   {
     int index = mp3.getCursorPos();
     musicCursor.setPosition(musicCursorPosX,musicCursorPosY[index]);
-    musicHighlight.setPosition(690, 288-(32*index));
+    musicHighlight.setPosition(690 * adjustValueX,( 288-(32*index)) * adjustValueY);
   }
   
   /**

@@ -39,6 +39,9 @@ public class HUDManagement {
   private static boolean egoFlag = false;
   // hud on/off flag
   private static boolean keyOn=false;
+  // adjust value for hud display size 
+  private static float adjustValueX;
+  private static float adjustValueY;
 
   private static Node nodeGui;
   private static Node hud;
@@ -65,11 +68,11 @@ public class HUDManagement {
   // Menu variable declare
 
   // position value
-  private static int x,y;
-  private static int[] menubarPosX = new int[5];
-  private static int menubarPosY;
-  private static int[] cursorPosX = new int[5];
-  private static int cursorPosY;
+  private static float x,y;
+  private static float[] menubarPosX = new float[5];
+  private static float menubarPosY;
+  private static float[] cursorPosX = new float[5];
+  private static float cursorPosY;
 
   //index Pos
   private static int menuStartIndex;
@@ -114,7 +117,11 @@ public class HUDManagement {
     BitmapFont ko_Font = sim.getAssetManager().loadFont("Interface/Fonts/MSNeoGothic/MSNeoGothic.fnt");
 
     x=sim.getSettings().getWidth()/2;
-    y=sim.getSettings().getHeight()/2-200;
+    y=sim.getSettings().getHeight()/2;
+    
+    adjustValueX = x / 960;
+    adjustValueY = y / 540;
+    //System.out.println("x=" + x + ", y=" + y);
 
     // setting part for default function element 		
     currentSpeedText = new BitmapText(ko_Font,false);
@@ -122,23 +129,23 @@ public class HUDManagement {
     currentSpeedText.setText("");
     currentSpeedText.setSize(ko_Font.getCharSet().getRenderedSize()+10);
     currentSpeedText.setColor(ColorRGBA.White);
-    currentSpeedText.setLocalTranslation(x+170,y-170,0);
+    currentSpeedText.setLocalTranslation(1130 * adjustValueX, 170 * adjustValueY ,0);
 
     distanceText = new BitmapText(ko_Font,false);
     distanceText.setText(null);
     distanceText.setSize(ko_Font.getCharSet().getRenderedSize()+20);
     distanceText.setColor(ColorRGBA.White);
-    distanceText.setLocalTranslation(x+50,y-100,0);
+    distanceText.setLocalTranslation(1010* adjustValueX, 240 * adjustValueY,0);
 
     navigatorSign = new Picture("straight");
-    navigatorSign.setWidth(52);
-    navigatorSign.setHeight(101);
-    navigatorSign.setPosition(x+170, y-150);
+    navigatorSign.setWidth(52 * adjustValueX);
+    navigatorSign.setHeight(101 * adjustValueY);
+    navigatorSign.setPosition(1130 * adjustValueX, 190 * adjustValueY);
 
     backGround = new Picture("bg");
-    backGround.setWidth(841);
-    backGround.setHeight(338);
-    backGround.setPosition(x-380, y-310);
+    backGround.setWidth(841* adjustValueX);
+    backGround.setHeight(338 * adjustValueY);
+    backGround.setPosition(580 * adjustValueX, 30 * adjustValueY);
     backGround.setImage(sim.getAssetManager(), "Textures/icons/panel/panel.png", true);
 
     for(int i = 0; i < stateNum; i++){
@@ -187,26 +194,26 @@ public class HUDManagement {
     // setting position value 
     /* menubar position setting */
     if(menuNum%2 == 1){
-      menubarPosX[0]=x-300;
-      menubarPosX[1]=x-230;
-      menubarPosX[2]=x-160;
-      menubarPosX[3]=x-90;
-      menubarPosX[4]=x-20;
+      menubarPosX[0]= 660 * adjustValueX;
+      menubarPosX[1]= 730 * adjustValueX;
+      menubarPosX[2]= 800 * adjustValueX;
+      menubarPosX[3]= 870 * adjustValueX;
+      menubarPosX[4]= 940 * adjustValueX;
     }else{
-      menubarPosX[0]=x-265;
-      menubarPosX[1]=x-195;
-      menubarPosX[2]=x-125;
-      menubarPosX[3]=x-75;
-      menubarPosX[4]=0;
+      menubarPosX[0]=695 * adjustValueX;
+      menubarPosX[1]=765 * adjustValueX;
+      menubarPosX[2]= 835 * adjustValueX;
+      menubarPosX[3]= 885 * adjustValueX;
+      menubarPosX[4]=0 * adjustValueX;
     }
-    menubarPosY=y-280;
+    menubarPosY= 60 * adjustValueY;
 
     /* cursor position setting */
-    cursorPosX[0]=menubarPosX[0]-5;
-    cursorPosX[1]=menubarPosX[1]-5;
-    cursorPosX[2]=menubarPosX[2]-5;
-    cursorPosX[3]=menubarPosX[3]-5;
-    cursorPosX[4]=menubarPosX[4]-5;
+    cursorPosX[0]=menubarPosX[0]-5 * adjustValueX;
+    cursorPosX[1]=menubarPosX[1]-5 * adjustValueX;
+    cursorPosX[2]=menubarPosX[2]-5 * adjustValueX;
+    cursorPosX[3]=menubarPosX[3]-5 * adjustValueX;
+    cursorPosX[4]=menubarPosX[4]-5 * adjustValueX;
     cursorPosY=menubarPosY;
 
     for(int i = menuStartIndex; i <= menuEndIndex; i++){
@@ -220,8 +227,8 @@ public class HUDManagement {
 
     cursorIcon = new Picture("cursorIcon");
     cursorIcon.setImage(sim.getAssetManager(),"Textures/icons/menubar/menubar_arrow.png",true);
-    cursorIcon.setWidth(90);
-    cursorIcon.setHeight(15);
+    cursorIcon.setWidth(90 * adjustValueX);
+    cursorIcon.setHeight(15 * adjustValueY);
     cursorIcon.setPosition(cursorPosX[menuStartIndex], cursorPosY);
 
     cursorPos = menuStartIndex;		
@@ -272,18 +279,18 @@ public class HUDManagement {
   private static void updateNavigatorSign()
   {
     if(navigatorSign.getName().equals("right")) {
-      navigatorSign.setWidth(98);
-      navigatorSign.setHeight(136);
+      navigatorSign.setWidth(98 * adjustValueX);
+      navigatorSign.setHeight(136 * adjustValueY);
       navigatorSign.setImage(sim.getAssetManager(), "Textures/icons/navi/arrow_right.png", true);
     }
     else if(navigatorSign.getName().equals("left")) {
-      navigatorSign.setWidth(98);
-      navigatorSign.setHeight(136);
+      navigatorSign.setWidth(98 * adjustValueX);
+      navigatorSign.setHeight(136 * adjustValueY);
       navigatorSign.setImage(sim.getAssetManager(), "Textures/icons/navi/arrow_left.png", true);
     }
     else if(navigatorSign.getName().equals("straight")) {
-      navigatorSign.setWidth(66);
-      navigatorSign.setHeight(136);
+      navigatorSign.setWidth(66 * adjustValueX);
+      navigatorSign.setHeight(136 * adjustValueY);
       navigatorSign.setImage(sim.getAssetManager(), "Textures/icons/navi/arrow_straight.png", true);
     }
   }

@@ -24,6 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import kr.ac.kookmin.cs.bluetooth.RemoteBluetoothServer;
+import kr.ac.kookmin.cs.hud.HUDMain;
 import kr.ac.kookmin.cs.hud.HUDManagement;
 import kr.ac.kookmin.cs.hud.HUDRegister;
 
@@ -302,8 +303,9 @@ public class Simulator extends SimulationBasics
 
     	PanelCenter.init(this);
     	// add part
-        HUDRegister.hud_enrollment();
-        HUDManagement.init(this);
+        //HUDRegister.hud_enrollment();
+        //HUDManagement.init(this);
+    	HUDMain.getInstance().init(this);
 	
         Joystick[] joysticks = inputManager.getJoysticks();
         if(joysticks != null)
@@ -481,7 +483,8 @@ public class Simulator extends SimulationBasics
 				car.getTransmission().updateRPM(tpf);
 		
 			PanelCenter.update();
-			HUDManagement.update();
+			//HUDManagement.update();
+			HUDMain.getInstance().update();
 		
 			triggerCenter.doTriggerChecks();
 		

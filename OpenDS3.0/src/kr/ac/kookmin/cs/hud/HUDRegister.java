@@ -19,8 +19,8 @@ public class HUDRegister {
 	public static void hud_enrollment()
 	{
 		//BSAHud.regist();
-		//CallHud.regist();
-		//SmsHud.regist();
+		CallHud.regist();
+		SmsHud.regist();
 		MusicHud.regist();
 	}
 }
