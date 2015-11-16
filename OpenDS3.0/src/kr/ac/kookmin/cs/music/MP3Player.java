@@ -18,7 +18,7 @@ import javazoom.jl.player.Player;
 * @details There are basic methods necessary to music playback such as run,resume,pause,next,previous function
 * @author Lee-MinJae , Im-GiSung
 */
-public class MusicPlayer {
+public class MP3Player {
 	private final static int NOTSTARTED = 0;
     private final static int PLAYING = 1;
     private final static int PAUSED = 2;
@@ -35,13 +35,13 @@ public class MusicPlayer {
 
     // status variable what player thread is doing/supposed to do
     private int playerStatus = NOTSTARTED;
-	private MusicHud musicHud;
+	private MusicView musicHud;
     
 //    private MusicHud musicHud;
     
     private static FileInputStream fileInputStream = null;
     
-    public MusicPlayer(MusicHud musicHud){
+    public MP3Player(MusicView musicHud){
     	this.musicHud = musicHud;
     }
 

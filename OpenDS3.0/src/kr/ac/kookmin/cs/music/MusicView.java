@@ -30,7 +30,7 @@ import eu.opends.main.Simulator;
  *          is output information related to the musicplayer to the appropriate position of HUD.
  * @author Lee-MinJae , Jo-KwangHyeon
  */
-public class MusicHud extends HUDClassTemplate{
+public class MusicView extends HUDClassTemplate{
 	private static SimulationBasics sim;
 	private static int hud_state;
 
@@ -40,7 +40,7 @@ public class MusicHud extends HUDClassTemplate{
 	private int musicStatus;
 
 	private MusicList list;
-	private MusicPlayer player;
+	private MP3Player player;
 
 	private int musicListIndex = 0;
 	private ArrayList<Path> musicList = new ArrayList<Path>();
@@ -170,7 +170,7 @@ public class MusicHud extends HUDClassTemplate{
 
 	private void initMusicPlayer()
 	{
-		player = new MusicPlayer(this);
+		player = new MP3Player(this);
 		
 		musicName = new BitmapText(font,false);
 		musicName.setName("music name");
@@ -252,7 +252,7 @@ public class MusicHud extends HUDClassTemplate{
 	 */
 	public static void regist()
 	{
-		MusicHud music = new MusicHud();
+		MusicView music = new MusicView();
 		hud_state = HUDManagement.regist(music);
 	}
 	public void pause()

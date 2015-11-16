@@ -2,7 +2,7 @@ package kr.ac.kookmin.cs.hud;
 
 import kr.ac.kookmin.cs.BSA.BSAHud;
 import kr.ac.kookmin.cs.call.CallHud;
-import kr.ac.kookmin.cs.music.MusicHud;
+import kr.ac.kookmin.cs.music.MusicView;
 import kr.ac.kookmin.cs.sms.SmsHud;
 
 /**
@@ -21,6 +21,6 @@ public class HUDRegister {
 		//BSAHud.regist();
 		//CallHud.regist();
 		//SmsHud.regist();
-		MusicHud.regist();
+		MusicView.regist();
 	}
 }
