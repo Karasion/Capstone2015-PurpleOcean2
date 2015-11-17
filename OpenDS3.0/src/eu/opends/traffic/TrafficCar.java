@@ -22,6 +22,9 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
+import kr.ac.kookmin.cs.BSA.BSAActionEvent;
+import kr.ac.kookmin.cs.hud.HUDController;
+
 import com.jme3.asset.TextureKey;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.material.Material;
@@ -434,6 +437,7 @@ public class TrafficCar extends Car
 		Vector3f carFrontPos = frontGeometry.getWorldTranslation();
 		Vector3f carCenterPos = centerGeometry.getWorldTranslation();
 		float angle = Util.getAngleBetweenPoints(carFrontPos, carCenterPos, obstaclePos, false);
+		
 		if(belowSafetyDistance(angle, distanceToObstacle))
 			return true;
 
@@ -456,9 +460,41 @@ public class TrafficCar extends Car
 		float lateralDistance = distance * FastMath.sin(angle);
 		float forwardDistance = distance * FastMath.cos(angle);
 		
-		//if(name.equals("car1"))
-		//	System.out.println(lateralDistance + " *** " + forwardDistance);
-		
+		// add logic start
+		float distance1 = sim.getCar().getPosition().distance(getPosition());
+		Vector3f carFrontPos = frontGeometry.getWorldTranslation();
+        Vector3f carCenterPos = centerGeometry.getWorldTranslation();
+        float angle1 = Util.getAngleBetweenPoints(carFrontPos, carCenterPos, sim.getCar().getPosition(), false);
+        float lateralDistance1 = distance1 * FastMath.sin(angle1);
+        float forwardDistance1 = distance1 * FastMath.cos(angle1);
+        int lateralDetectRange = 4;
+        
+        Vector3f BA = carFrontPos.subtract(carCenterPos);
+        Vector3f BC = carCenterPos.subtract(sim.getCar().getPosition());
+        Vector3f result = new Vector3f();
+        BA.setY(0);
+        BC.setY(0);
+        BA.cross(BC,result);
+        HUDController hudController = HUDController.getInstance();
+        
+        if((lateralDistance1 < lateralDetectRange)) {
+          if(forwardDistance1 < 0){
+            hudController.eventHandler(new BSAActionEvent("alertType","BSAController","safe"));
+          } else if(forwardDistance1 >=0 && forwardDistance1 <=2) {
+            if(result.getY() < 0)
+              hudController.eventHandler(new BSAActionEvent("alertType","BSAController","right"));
+            else
+              hudController.eventHandler(new BSAActionEvent("alertType","BSAController","left"));
+            
+          } else if(forwardDistance1 >2 && forwardDistance1 < minForwardSafetyDistance) {
+            hudController.eventHandler(new BSAActionEvent("alertType","BSAController","back"));
+          }
+          
+        } else if((lateralDistance1 >= minLateralSafetyDistance) && (forwardDistance1 >= minForwardSafetyDistance)) {
+          hudController.eventHandler(new BSAActionEvent("alertType","BSAController","safe"));
+        }
+        
+		// add logic end
 		float speedDependentForwardSafetyDistance = 0;
 		
 		if(useSpeedDependentForwardSafetyDistance)

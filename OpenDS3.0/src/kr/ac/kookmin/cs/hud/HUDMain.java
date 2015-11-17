@@ -1,5 +1,6 @@
 package kr.ac.kookmin.cs.hud;
 
+import kr.ac.kookmin.cs.BSA.BSAController;
 import kr.ac.kookmin.cs.Navigation.NaviActionEvent;
 import kr.ac.kookmin.cs.Navigation.NaviController;
 import eu.opends.main.Simulator;
@@ -16,8 +17,9 @@ public class HUDMain {
   {
     this.sim = sim;
     NaviController naviController = new NaviController(sim);
+    BSAController bsaController = new BSAController(sim);
     
-    HUDModel hudModel = new HUDModel(naviController, naviController.getNaviView());
+    HUDModel hudModel = new HUDModel(naviController, naviController.getNaviView(), bsaController, bsaController.getBSAView());
     HUDView hudView = new HUDView(sim, hudModel);
     hudController.init(hudModel, hudView);
     

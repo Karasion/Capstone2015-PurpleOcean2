@@ -14,6 +14,7 @@ public class HUDController {
     this.hudView = hudView;
     
     hudView.attachNode(hudModel.getNaviView().getNode());
+    hudView.attachNode(hudModel.getBSAView().getNode());
   }
   
   public static HUDController getInstance()
@@ -30,6 +31,9 @@ public class HUDController {
         break;
       case "HUDController":
         action(event.getActionName());
+        break;
+      case "BSAController":
+        hudModel.getBSAController().eventHandler(event);
         break;
     }
   }
