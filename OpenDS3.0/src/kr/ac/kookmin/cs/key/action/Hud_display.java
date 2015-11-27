@@ -1,20 +1,14 @@
 package kr.ac.kookmin.cs.key.action;
 
-import kr.ac.kookmin.cs.hud.HUDManagement;
+import kr.ac.kookmin.cs.hud.HUDController;
+import kr.ac.kookmin.cs.hud.event.ActionEvent;
 
 public class Hud_display {
-  public static void action(boolean value)
-  {
-    if (value)
-    {
-      if(HUDManagement.getKeyFlag() == false && HUDManagement.isCameraEgo() == true){
-        HUDManagement.keyFlagSetting();
-        HUDManagement.hudAttach();
-      }
-      else if(HUDManagement.getKeyFlag() == true && HUDManagement.isCameraEgo() == true){
-        HUDManagement.keyFlagSetting();
-        HUDManagement.hudDetach();
-      }
-    }
-  }
+	private static HUDController hudController = HUDController.getInstance();
+	public static void action(boolean value)
+	{
+		if (value) {
+			hudController.eventHandler(new ActionEvent("HUDOnOrOff", "HUDController"));
+		}
+	}
 }
