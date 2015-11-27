@@ -8,10 +8,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class MusicList {
-	private static Path currentDir;
-	private static ArrayList<Path> directoryList = new ArrayList<Path>();
-	private static ArrayList<Path> mp3FileList = new ArrayList<Path>();
+import kr.ac.kookmin.cs.basic.AppModel;
+import kr.ac.kookmin.cs.hud.HUDController;
+
+public class MusicList implements AppModel {
+	private Path currentDir;
+	private ArrayList<Path> directoryList = new ArrayList<Path>();
+	private ArrayList<Path> mp3FileList = new ArrayList<Path>();
+	private int index = 0;
 	
 	public MusicList(){
 		currentDir = Paths.get("assets/Music");
@@ -72,5 +76,36 @@ public class MusicList {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
+	}
+	
+	public void moveNext(){
+		if(++index <= directoryList.size() + mp3FileList.size()-1)
+			return;
+		index = 0;
+	}
+	
+	public void movePrevious(){
+		if(--index >= 0)
+			return;
+		index = directoryList.size() + mp3FileList.size()-1;
+	}
+	
+	public int getIndex(){
+		return index;
+	}
+
+	public void select() {
+		if(index > directoryList.size()-1){
+			MusicActionEvent mev = new MusicActionEvent("StateTransition", directoryList, mp3FileList, index);
+			HUDController.getInstance().eventHandler(mev);
+			return;
+		}
+		chageDirectory(directoryList.get(index));
+	}
+
+	public void setList(ArrayList<Path> directoryList, ArrayList<Path> mp3FileList, int index) {
+		this.directoryList = directoryList;
+		this.mp3FileList = mp3FileList;
+		this.index = index;
 	}
 }
