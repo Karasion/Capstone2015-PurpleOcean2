@@ -1,5 +1,6 @@
 package eu.opends.input.action.simulator;
 
+import eu.opends.audio.AudioCenter;
 import eu.opends.input.SimulatorActionListener;
 import eu.opends.main.Simulator;
 

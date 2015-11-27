@@ -49,7 +49,7 @@ public class DriveAnalyzerActionListener implements ActionListener
 	public void onAction(String binding, boolean value, float tpf) 
 	{
     	try {
-			Class actionClass = Class.forName(binding);
+			Class<?> actionClass = Class.forName(binding);
 			Method action = actionClass.getMethod("action");
 			action.invoke(actionClass);
 		} catch (Throwable e) {

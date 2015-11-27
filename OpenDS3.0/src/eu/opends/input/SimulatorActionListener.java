@@ -93,7 +93,7 @@ public class SimulatorActionListener implements ActionListener
 	{
 		try {
 //			System.out.println("key : " + binding);
-			Class actionClass = Class.forName(binding);
+			Class<?> actionClass = Class.forName(binding);
 			Method action = actionClass.getMethod("action", new Class[]{boolean.class});
 			action.invoke(actionClass, new Object[]{value});
 		} catch (Throwable e) {

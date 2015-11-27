@@ -1,6 +1,7 @@
 package eu.opends.trigger;
 
-import kr.ac.kookmin.cs.hud.HUDManagement;
+import kr.ac.kookmin.cs.Navigation.NaviActionEvent;
+import kr.ac.kookmin.cs.hud.HUDController;
 
 //Im gisung, Hong sunghyeon
 public class DisplayNavigatorAction extends TriggerAction {
@@ -17,7 +18,8 @@ public class DisplayNavigatorAction extends TriggerAction {
 	// override
 	protected void execute()
 	{
-		HUDManagement.setNaviType(naviType, distance);
+//		HUDManagement.setNaviType(naviType, distance);
+		HUDController.getInstance().eventHandler(new NaviActionEvent("DirectionTrigger","NaviController",distance, naviType));
 	}
 	// override
 	public String toString()
