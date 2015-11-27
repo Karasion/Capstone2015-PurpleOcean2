@@ -17,8 +17,9 @@ import java.io.OutputStream;
 
 import javax.microedition.io.StreamConnection;
 
-import kr.ac.kookmin.cs.call.CallListener;
-import kr.ac.kookmin.cs.sms.SmsRecv;
+import kr.ac.kookmin.cs.call.CallActionEvent;
+import kr.ac.kookmin.cs.hud.HUDController;
+import kr.ac.kookmin.cs.sms.SMSActionEvent;
 
 /**
  * @brief This class is process the data passed to it is communication with Bluetooth.
@@ -66,6 +67,7 @@ public class ProcessConnectionThread implements Runnable{
 //      System.out.println("waiting for input");
 
       while (true) {
+    	  HUDController hudController = HUDController.getInstance();
         inputStream.read(temp);
 //        System.out.println("test");
         data =(BtData)BtData.deserialize(temp);
@@ -77,17 +79,25 @@ public class ProcessConnectionThread implements Runnable{
         } else if (data.getDataType() == SMS_RECV) {
 //          System.out.println(data.getMsg());
 //          System.out.println("from "+ data.getSender());
-          SmsRecv.addMsg(data.getMsg(), data.getSender());
+//          SmsRecv.addMsg(data.getMsg(), data.getSender());
+          SMSActionEvent ev = new SMSActionEvent("SMSReceive", "SMSController", data.getMsg(), data.getSender());
+          hudController.eventHandler(ev);
         } else if (data.getDataType() == CALL_RECV) {
 //          System.out.println("CALL Recv");
 //          System.out.println("from" + data.getSender());
-          CallListener.setSender(data.getSender());
+//          CallListener.setSender(data.getSender());
+          CallActionEvent ev = new CallActionEvent("ReceiveCall", "CallController", data.getSender());
+          hudController.eventHandler(ev);
         } else if (data.getDataType() == CALL_END) {
 //          System.out.println("CALL END");
-          CallListener.setEnd();
+//          CallListener.setEnd();
+          CallActionEvent ev = new CallActionEvent("EndCall", "CallController", data.getSender());
+          hudController.eventHandler(ev);
         } else if (data.getDataType() == CALL_ON) {
 //          System.out.println("CALL ON");
-          CallListener.setCallState(1);
+//          CallListener.setCallState(1);
+          CallActionEvent ev = new CallActionEvent("OnCall", "CallController", data.getSender());
+          hudController.eventHandler(ev);
         }
       }
     } catch (Exception e) {
